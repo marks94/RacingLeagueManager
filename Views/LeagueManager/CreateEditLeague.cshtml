@@ -1,0 +1,30 @@
+﻿@model RacingLeagueManager.Models.League
+
+<div class="card">
+    <div class="card-header">
+        <h5>Create or edit new league</h5>
+    </div>
+
+    <form asp-action="CreateEditLeague" method="post">
+        <div class="card-body">
+            <div class="row mb-2">
+                <div class="col ">
+                    <input hidden asp-for="Id" placeholder="ID" class="form-control" />
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <input asp-for="Name" placeholder="Name" class="form-control" />
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <input asp-for="Description" placeholder="Description" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Speichern</button>
+        </div>
+    </form>
+</div>

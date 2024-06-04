@@ -1,0 +1,71 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-action="CreateEditLeagueForm">
+    <button type="submit" class="btn btn-primary">+ Create League</button>
+</form>
+<hr />
+
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            foreach(League league in ViewBag.Leagues)
+            {
+                <tr>
+                    <td>
+                        @league.Id
+                    </td>
+                    <td>
+                        @league.Name
+                    </td>
+                    <td>
+                        @league.Description
+                    </td>
+                    <td class="align-items-end">
+                        <form asp-action="CreateEditLeagueForm" asp-route-id="@league.Id">
+                            <button type="submit" class="btn btn-warning">Edit</button>
+                        </form>
+                        <form asp-action="DeleteLeague" asp-route-id="@league.Id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<!-- The sidebar -->
+@* <div class="sidebar">
+    <ul>
+        @* <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="LeagueManager" asp-action="Index">Create League</a>
+        </li> 
+        <form asp-action="CreateEditLeagueForm">
+            <button type="submit" class="btn btn-primary">+ Create League</button>
+        </form>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="LeagueManager" asp-action="Index">My Leagues</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="LeagueManager" asp-action="Index">Explore Leagues</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Page content -->
+<div class="container">
+    
+</div>*@
